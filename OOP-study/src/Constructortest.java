@@ -23,7 +23,7 @@ class Car{
 
     public Car(){} // 기본생성자
 
-    public Car(Car c){      // 인스턴스를 복사한다.
+    public Car(Car c){      // 인스턴스를 복사한다. *this를 이용하면 재사용이가능하다.
         maker = c.maker;
         color = c.color;
     }
