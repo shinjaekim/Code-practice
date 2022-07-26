@@ -32,7 +32,7 @@ class Solution1 {
                 System.out.println("1.temp : " + temp);
                 System.out.println(" ");
             }
-            else if(first < boxes[i]){ //첫요소보다 다음 요소가 크면
+            else if(first < boxes[i]){  //첫요소보다 다음 요소가 크면
                 first = boxes[i];    //그리고 첫요소에 현재 값을 넣어준다.
                 if(count > temp){           //지금까지 센개수가 저장된값 보다 크면
                     temp = count;            //지금까지 카운트를 임시 저장하고
