@@ -1,3 +1,4 @@
+import java.util.*;
 public class FindPathTest {
     public static void main(String[] args) {
         Solus s = new Solus();
@@ -17,24 +18,24 @@ public class FindPathTest {
 }
 class Solus {
     public boolean getDirections(int[][] matrix, int from, int to) {
-        // TODO:
-        System.out.println("!!!");
-        if(matrix[from][to] == 1) return true;
 
-            // 직접 연결이 안된다면 중간단계를 구한다.
-        else if(matrix[from][to] != 1){
+        int[][] tMatrix = new int[matrix.length][];
 
-            for(int i = 0 ; i < matrix[0].length ;  i++){
+        for (int i = 0; i < matrix.length; i++) {  // 앞서 만든 임시배열에 matrix값 복사.
+            tMatrix[i] = Arrays.copyOf(matrix[i], matrix[i].length);
+        }
 
-                if(matrix[from][i] == 1){
+        if (from == to) return true; // 재귀의 탈출부
 
-                    matrix[from][i] = 0;
-                    System.out.println("!!!");
-                    getDirections(matrix, i, to);
-
-                }
+        // 입력된 출발지점의 1차원 배열을 순회합니다.
+        for (int i = 0; i < tMatrix[from].length; i++) {
+            //길이 존재한다면
+            if (tMatrix[from][i] == 1) {
+                tMatrix[from][i] = 0;
+                if (getDirections(tMatrix, i, to)) return true; //메서드가 진정 반환하고자하는값
             }
         }
+        //길을 찾을수 없는 경우 false를 반환합니다.
         return false;
     }
 }

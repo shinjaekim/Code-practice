@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm/Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Code-practice.iml" filepath="$PROJECT_DIR$/.idea/Code-practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataStructure/DataStructure.iml" filepath="$PROJECT_DIR$/DataStructure/DataStructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenericCollection/GenericCollection.iml" filepath="$PROJECT_DIR$/GenericCollection/GenericCollection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOP-study/OOP-study.iml" filepath="$PROJECT_DIR$/OOP-study/OOP-study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOP-study2/OOP-study2.iml" filepath="$PROJECT_DIR$/OOP-study2/OOP-study2.iml" />
+    </modules>
+  </component>
+</project>
