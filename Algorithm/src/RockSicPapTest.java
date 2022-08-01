@@ -2,44 +2,74 @@ import java.util.*;
 
 public class RockSicPapTest {
     public static void main(String[] args) {
-        Rspsolution r = new Rspsolution();
+       Rspsolution test = new Rspsolution();
 
-        int rounds = 5;
-
-        r.rockPaperScissors(rounds);
+       ArrayList<String[]> list = new ArrayList<>();
+       list = test.rockPaperScissors(3);
+        int i = 1;
+       for(String[] s : list){
+           System.out.printf("%d", i++);
+           System.out.println(Arrays.toString(s));
+       }
     }
 }
 class Rspsolution{
     public ArrayList<String[]> rockPaperScissors(int rounds) {
         // TODO:
-        ArrayList<String[]> result = new ArrayList<>(); // 편하게 삽입 삭제 하려고 만들었다.
+        ArrayList<String[]> result = new ArrayList<>();
+        String[] currentCase = new String[rounds];
+        int index = 0;
 
+        return caseList(result, currentCase, rounds, index);
+    }
+    public ArrayList<String[]> caseList (ArrayList<String[]> result, String[] currentCase, int rounds, int index){
+
+        String[] rps = {"rock", "paper", "scissors"};
+
+        if(index == rounds){
+            System.out.println(Arrays.toString(currentCase));
+            //여기서 문제
+            String[] input = new String[rounds];
+            for(int i = 0 ; i < currentCase.length ; i++){
+                input[i] = currentCase[i];
+            }
+            result.add(input);
+
+            return result;            // 리스트를 반환해주고
+        }
+
+        for(int i = 0 ; i < rps.length ; i++){
+            String s = rps[i];
+            System.out.println(i);
+            System.out.println("값은 : " + s);
+
+            currentCase[index] = rps[i];
+            caseList(result, currentCase, rounds, index+1);
+
+        }
         return result;
     }
-
-    public ArrayList<String[]> calculator (int rounds, String[] save,  ArrayList<String[]> list){ // rounds를 그대로 받아오면 좋겠다.
-
-        String[] rsp = {"rock", "paper", "scissors"};
-//        String[] s = new String[rounds];  // (라운드수만큼 가위바위보 경우의 수를 담을 배열) // 이거를 포문 안으로 옮기자.
-//        String[] save = {" "}; // 낸 값을 저장할 배열    // 매개변수로 넣어줘야한다. 여기서 넣어주면 계속 초기화된다.
-        String[] nextRound = {" "}; // 라운드를 늘려줄 배열
-
-        // 재귀함수 탈출구
-        if(rounds == 0){   // 인덱스가 라운드수랑 같아진다면 0 ~ 라운드-1 인덱스까지는 다 담은거니까
-            System.out.println(Arrays.toString(save));
-            list.add(save);         // 리스트에 추가한다.
-            return list;         // 그리고 리스트를 반환하면
-        }
-
-        for(int i = 0 ; i < rsp.length ; i++){
-            String current = rsp[i];   // 이번 라운드에서 값을 냈으니까
-
-            save = Arrays.copyOf(nextRound, nextRound.length+1);  // 다음 라운드를 준비하기위해 (다음 라운드의 값을 넣어줄 배열을 만들기 위해)
-
-            save[save.length-1] = current; // 길이보다 1 작은 인덱스라 함은 이전에 늘려줬는데 아무것도 들어가지 않은 배열이다.
-
-            list = calculator(rounds-1, save, list);
-        }
-        return list;
-    }
 }
+
+/*
+원래 경우를 보자
+1. 배열을 생성하고
+2. 포문에 들어간 후
+3. 객체를 조건에 맞게 만들어 넣어준다.
+
+이러면 리스트에 여러가지의 경우의 수들이 객체로 들어간 것처럼 보이지만
+리스트가 참조하는 객체의 주소는 하나로 똑같다.
+
+ex)
+1번 주소에 rock rock rock. 이걸 add 해주면
+list 1번 주소 객체
+2번 주소에 rock rock papaer 이걸 add 해주면
+list 1번 주소 객체, 1번 주소 객체
+
+이렇게 결국 같은 객체만 계속 들어가고
+수정된 값에 의해 다 똑같은 값들로 바뀐다.
+
+하지만
+
+포문 안에 매번 할때마다 객체를 생성해준다면??
+ */

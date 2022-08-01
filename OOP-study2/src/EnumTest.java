@@ -10,6 +10,7 @@ public class EnumTest {
         Cage[] arr = Cage.values();    // enums.value() -> 모든 상수들을 배열로 반환
         System.out.println(Arrays.toString(arr));
         System.out.println(" ");
+        System.out.println(Cage.BEAR.name());
 
         for (Cage a : arr) {
             System.out.println(a.ordinal() + " 번 우리입니다.");
@@ -30,7 +31,7 @@ public class EnumTest {
             case COYOTE:
                 System.out.println("4번 우리");
                 break;
-                
+
         }
     }
 }
