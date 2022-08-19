@@ -1,21 +1,26 @@
 public class IsIsogramTest {
     public static void main(String[] args) {
         Iit i = new Iit();
-        i.isIsogram("abcdefghii");
+        String str = "dropOut";
+        i.isIsogram(str);
+
     }
 }
 class Iit{
     public boolean isIsogram(String str) {
         // TODO:
-        String newStr = str.toUpperCase();
-        System.out.println(newStr);
-        String[] strArr =newStr.split("");
+        String s = str.toUpperCase();
+        System.out.println(s);
+        String[] strArr =s.split("");
 
         for(int i = 0 ; i < strArr.length ; i++){
+            System.out.println(" ");
             System.out.println(strArr[i]);
+            int count = 0;
             for(int j = 0 ; j < strArr.length ; j++){
-                System.out.println(strArr[j]);
-                if(strArr[i] == strArr[j]) return false;
+                if(String.valueOf(strArr[i]) == String.valueOf(strArr[j])) count++;
+                System.out.println(count);
+                if(count == 2) return false;
             }
         }
         return true;
